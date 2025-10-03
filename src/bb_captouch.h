@@ -217,7 +217,7 @@ class BBCapTouch
 {
 public:
     BBCapTouch() { _iOrientation = 0; _iType = CT_TYPE_UNKNOWN;}
-#ifndef __LINUX__
+#ifdef ARDUINO
     ~BBCapTouch() { myWire->end(); }
 #endif
 
@@ -236,7 +236,7 @@ public:
 
 protected:
     void reset(int iResetPin);
- 
+
 private:
     int _iAddr;
     int _iType;
